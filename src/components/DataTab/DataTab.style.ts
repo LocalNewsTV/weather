@@ -32,7 +32,7 @@ type ButtonProps = {
 };
 
 export const Button = styled.button<ButtonProps>`
-  background-color: inherit;
+  background-color: transparent;
   border: none;
   display: flex;
   height: 100%;
