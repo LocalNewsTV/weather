@@ -11,26 +11,25 @@ const App = () => {
   useEffect(() => {
     (async () => {
       try {
-        const data = await fetch(
-          "https://localnewstv-todo.onrender.com/api/weather",
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-            method: "POST",
-            body: JSON.stringify({ location: "Richmond BC" }),
-          }
-        );
-        console.log(data);
+        await fetch("https://localnewstv-todo.onrender.com/api/weather", {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          method: "POST",
+          body: JSON.stringify({ location: "Richmond BC" }),
+        })
+          .then((response) => response.json())
+          .then((r) => setWeather(r));
       } catch (e) {
         console.error(e);
       }
     })();
   }, []);
+  console.log(weather);
   return (
     <>
       <Settings />
-      <Content />
+      <Content weather={weather} />
     </>
   );
 };
