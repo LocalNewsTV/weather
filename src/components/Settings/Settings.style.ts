@@ -3,6 +3,15 @@ import styled from "@emotion/styled";
 type ContainerProps = {
   transform: number;
 };
+export const Boundary = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  overflow: hidden;
+  display: flex;
+  width: 280pt;
+  height: 60pt;
+`;
 export const Container = styled.div<ContainerProps>`
   align-items: center;
   justify-content: flex-start;
