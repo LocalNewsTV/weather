@@ -1,11 +1,16 @@
 import { useEffect, useState } from "react";
-import { Button, Container, Img } from "./DataTab.style";
+import { Button, Container, Img, SourcedImage, StyledP } from "./DataTab.style";
 import chevronRight from "/chevron-compact-right.svg";
 
 type PropTypes = {
   width: number;
+  options?: {
+    imageSrc?: string;
+    textLeft?: string[];
+    textRight?: string[];
+  };
 };
-const DataTab = ({ width }: PropTypes) => {
+const DataTab = ({ width, options }: PropTypes) => {
   const BASE_TOGGLE = -90;
   const [stateWidth, setStateWidth] = useState<number>(0);
   const [transform, setTransform] = useState<number>(-100);
@@ -18,14 +23,19 @@ const DataTab = ({ width }: PropTypes) => {
     <Container
       width={stateWidth}
       transform={transform}
-      onClick={() => {
-        setToggle((toggle) => !toggle);
-        setTransform(toggle ? BASE_TOGGLE : 0);
-      }}
       onMouseEnter={() => setTransform(toggle ? BASE_TOGGLE + 3 : -3)}
       onMouseLeave={() => setTransform(toggle ? BASE_TOGGLE : 0)}
     >
-      <Button visible={toggle}>
+      {options?.textLeft && <StyledP>{options.textLeft.join(", ")}</StyledP>}
+      {options?.imageSrc && <SourcedImage src={options.imageSrc} />}
+      {options?.textRight && <StyledP>{options.textRight.join(", ")}</StyledP>}
+      <Button
+        visible={toggle}
+        onClick={() => {
+          setToggle((toggle) => !toggle);
+          setTransform(toggle ? BASE_TOGGLE : 0);
+        }}
+      >
         <Img src={chevronRight} />
       </Button>
     </Container>

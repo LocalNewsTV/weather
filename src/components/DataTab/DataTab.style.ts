@@ -48,3 +48,19 @@ export const Button = styled.button<ButtonProps>`
     opacity: 0.75;
   }
 `;
+
+export const SourcedImage = styled.img`
+  height: 100pt;
+  width: 100pt;
+  padding: 0;
+  margin: 0;
+`;
+
+export const StyledP = styled.p`
+  font-size: 20pt;
+  margin: 0 3pt;
+  padding: 0;
+  &:nth-of-type(even) {
+    font-style: italic;
+  }
+`;
