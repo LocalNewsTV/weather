@@ -70,8 +70,8 @@ export const Button = styled.button<ButtonProps>`
 `;
 
 export const SourcedImage = styled.img`
-  height: 85pt;
-  width: 75pt;
+  max-height: 45pt;
+  max-width: 45pt;
   padding: 0;
   margin: 0;
 `;
