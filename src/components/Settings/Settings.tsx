@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, KeyboardEvent, useState } from "react";
 import {
   Boundary,
   Container,
@@ -19,7 +19,7 @@ const Settings = ({ setLocation }: PropTypes) => {
   const updateLocation = () => setLocation(searchString);
   const handleChange = (evt: ChangeEvent<HTMLInputElement>) =>
     setSearchString(evt.target.value);
-  const handleKeyDown = (evt: KeyboardEvent) => {
+  const handleKeyDown = (evt: KeyboardEvent<HTMLInputElement>) => {
     console.log(evt.key);
     if (evt.key === "Enter") {
       evt.preventDefault();
