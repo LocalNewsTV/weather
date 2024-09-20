@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 type ContainerProps = {
   transform: number;
 };
+
 export const Boundary = styled.div`
   position: absolute;
   top: 0;
@@ -14,23 +15,62 @@ export const Boundary = styled.div`
 `;
 export const Container = styled.div<ContainerProps>`
   align-items: center;
-  justify-content: flex-start;
   background-color: #00000089;
   border: 1pt solid black;
+  border-right: none;
+  border-radius: 45pt 0 0 45pt;
+  color: white;
   display: flex;
   flex-direction: row;
-  padding-left: 20pt;
   height: 60pt;
+  justify-content: flex-start;
+  padding-left: 20pt;
   position: absolute;
   right: 0;
   top: 3%;
-  border-radius: 45pt 0 0 45pt;
   transform: translateX(${({ transform }) => transform}%);
-  transition: transform 0.5s ease-in;
+  transition: transform 0.5s;
   width: 250pt;
+  & > *:not(:first-child) {
+    margin-left: 1rem;
+  }
 `;
 
-export const Button = styled.button`
+export const StyledInput = styled.input`
+  height: 30pt;
+  width: 120pt;
+  padding-left: 1rem;
+  border: none;
+  box-sizing: border-box;
+  font-size: 14pt;
+  &:focus {
+    outline: transparent;
+  }
+`;
+export const InputDiv = styled.div`
+  border: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 145pt;
+  background-color: white;
+  overflow: hidden;
+  border-radius: 5pt;
+  height: 30pt;
+`;
+export const InputTrigger = styled.button`
+  height: 20pt;
+  width: 20pt;
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  img {
+    height: 15pt;
+    width: 15pt;
+  }
+`;
+export const Gear = styled.button`
   background: none;
   border: none;
   border-radius: 45%;
@@ -38,9 +78,8 @@ export const Button = styled.button`
   margin: 0;
   padding: 0;
   width: 30;
-`;
-
-export const Img = styled.img`
-  height: 30pt;
-  width: 30pt;
+  img {
+    height: 30pt;
+    width: 30pt;
+  }
 `;

@@ -1,25 +1,59 @@
-import { useState } from "react";
-import { Boundary, Button, Container, Img } from "./Settings.style";
-import settings from "/gear-fill.svg";
+import { ChangeEvent, useState } from "react";
+import {
+  Boundary,
+  Container,
+  Gear,
+  InputDiv,
+  InputTrigger,
+  StyledInput,
+} from "./Settings.style";
 
-const Settings = () => {
+type PropTypes = {
+  setLocation: (val: string) => void;
+};
+const Settings = ({ setLocation }: PropTypes) => {
   const BASE_TOGGLE = 77;
   const [transform, setTransform] = useState<number>(BASE_TOGGLE);
+  const [searchString, setSearchString] = useState<string>("");
   const [toggle, setToggle] = useState<boolean>(false);
+  const updateLocation = () => setLocation(searchString);
+  const handleChange = (evt: ChangeEvent<HTMLInputElement>) =>
+    setSearchString(evt.target.value);
+  const handleKeyDown = (evt: KeyboardEvent) => {
+    console.log(evt.key);
+    if (evt.key === "Enter") {
+      evt.preventDefault();
+      updateLocation();
+    }
+  };
+
   return (
     <Boundary>
       <Container
         transform={transform}
-        onClick={() => {
-          setToggle((toggle) => !toggle);
-          setTransform(toggle ? BASE_TOGGLE : 0);
-        }}
         onMouseEnter={() => setTransform(toggle ? 3 : BASE_TOGGLE - 3)}
         onMouseLeave={() => setTransform(toggle ? 0 : BASE_TOGGLE)}
       >
-        <Button>
-          <Img src={settings} />
-        </Button>
+        <Gear
+          onClick={() => {
+            setToggle((toggle) => !toggle);
+            setTransform(toggle ? BASE_TOGGLE : 0);
+          }}
+        >
+          <img src={"/gear-fill.svg"} />
+        </Gear>
+        <InputDiv>
+          <StyledInput
+            type="text"
+            onChange={handleChange}
+            onKeyDown={handleKeyDown}
+            placeholder={"Change Locale"}
+            value={searchString ?? ""}
+          />
+          <InputTrigger onClick={updateLocation}>
+            <img src={"/search.svg"} />
+          </InputTrigger>
+        </InputDiv>
       </Container>
     </Boundary>
   );

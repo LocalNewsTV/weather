@@ -6,6 +6,7 @@ import Settings from "./components/Settings/Settings";
 const App = () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [weather, setWeather] = useState<Record<string, any>>();
+  const [location, setLocation] = useState<string>("Richmond BC");
   document.body.style.backgroundImage = `url('/Mowgli1.jpg')`;
 
   useEffect(() => {
@@ -16,7 +17,7 @@ const App = () => {
             "Content-Type": "application/json",
           },
           method: "POST",
-          body: JSON.stringify({ location: "Richmond BC" }),
+          body: JSON.stringify({ location }),
         })
           .then((response) => response.json())
           .then((r) => setWeather(r));
@@ -24,12 +25,11 @@ const App = () => {
         console.error(e);
       }
     })();
-  }, []);
-  console.log(weather);
+  }, [location]);
   return (
     <>
-      <Settings />
-      <Content weather={weather} />
+      <Settings setLocation={setLocation} />
+      {weather && <Content weather={weather} />}
     </>
   );
 };
