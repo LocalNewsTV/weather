@@ -2,12 +2,13 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import Content from "./components/Content/Content";
 import Settings from "./components/Settings/Settings";
+import Mowgli from "./assets/Mowgli1.jpg";
 
 const App = () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [weather, setWeather] = useState<Record<string, any>>();
   const [location, setLocation] = useState<string>("Richmond BC");
-  document.body.style.backgroundImage = `url('/Mowgli1.jpg')`;
+  document.body.style.backgroundImage = `url(${Mowgli})`;
 
   useEffect(() => {
     (async () => {
