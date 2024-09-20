@@ -7,6 +7,8 @@ import {
   InputTrigger,
   StyledInput,
 } from "./Settings.style";
+import gear from "../../assets/gear-fill.svg";
+import search from "../../assets/search.svg";
 
 type PropTypes = {
   setLocation: (val: string) => void;
@@ -40,7 +42,7 @@ const Settings = ({ setLocation }: PropTypes) => {
             setTransform(toggle ? BASE_TOGGLE : 0);
           }}
         >
-          <img src={"/gear-fill.svg"} />
+          <img src={gear} />
         </Gear>
         <InputDiv>
           <StyledInput
@@ -51,7 +53,7 @@ const Settings = ({ setLocation }: PropTypes) => {
             value={searchString ?? ""}
           />
           <InputTrigger onClick={updateLocation}>
-            <img src={"/search.svg"} />
+            <img src={search} />
           </InputTrigger>
         </InputDiv>
       </Container>
