@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button, Container } from "./DataTab.style";
-import chevronRight from "/chevron-compact-right.svg";
+import chevronRight from "../../assets/chevron-compact-right.svg";
 
 type PropTypes = {
   children?: any;
