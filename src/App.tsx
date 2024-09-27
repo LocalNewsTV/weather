@@ -7,11 +7,22 @@ import Mowgli from "./assets/Mowgli1.jpg";
 const App = () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [weather, setWeather] = useState<Record<string, any>>();
-  const [location, setLocation] = useState<string>("Richmond BC");
+  const [location, setLocation] = useState<string>(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        const { latitude, longitude } = position.coords;
+        setLocation(`${latitude},${longitude}`);
+      });
+    }
+    return "";
+  });
   document.body.style.backgroundImage = `url(${Mowgli})`;
 
   useEffect(() => {
     (async () => {
+      if (!location) {
+        return;
+      }
       try {
         await fetch("https://localnewstv-todo.onrender.com/api/weather", {
           headers: {
