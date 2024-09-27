@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
-import "./App.css";
-import Content from "./components/Content/Content";
-import Settings from "./components/Settings/Settings";
-import Mowgli from "./assets/Mowgli1.jpg";
+import { useEffect, useState } from 'react';
+import './App.css';
+import Content from './components/Content/Content';
+import Settings from './components/Settings/Settings';
+import '@fontsource-variable/roboto-mono';
+import '@fontsource/roboto';
+import Mowgli from './assets/Mowgli1.jpg';
 
 const App = () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -14,7 +16,7 @@ const App = () => {
         setLocation(`${latitude},${longitude}`);
       });
     }
-    return "";
+    return '';
   });
   document.body.style.backgroundImage = `url(${Mowgli})`;
 
@@ -24,11 +26,11 @@ const App = () => {
         return;
       }
       try {
-        await fetch("https://localnewstv-todo.onrender.com/api/weather", {
+        await fetch('https://localnewstv-todo.onrender.com/api/weather', {
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
-          method: "POST",
+          method: 'POST',
           body: JSON.stringify({ location }),
         })
           .then((response) => response.json())
