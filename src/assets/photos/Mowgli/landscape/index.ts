@@ -1,0 +1,17 @@
+export { default as mowgli1 } from './1.jpg';
+export { default as mowgli2 } from './2.jpg';
+export { default as mowgli3 } from './3.jpg';
+export { default as mowgli4 } from './4.jpg';
+export { default as mowgli5 } from './5.jpg';
+export { default as mowgli6 } from './6.jpg';
+export { default as mowgli7 } from './7.jpg';
+export { default as mowgli8 } from './8.jpg';
+export { default as mowgli9 } from './9.jpg';
+export { default as mowgli10 } from './10.jpg';
+export { default as mowgli11 } from './11.jpg';
+export { default as mowgli12 } from './12.jpg';
+export { default as mowgli13 } from './13.jpg';
+export { default as mowgli14 } from './14.jpg';
+export { default as mowgli15 } from './15.jpg';
+export { default as mowgli16 } from './16.jpg';
+export { default as mowgli17 } from './17.jpg';
