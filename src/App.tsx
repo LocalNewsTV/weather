@@ -1,16 +1,19 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import Content from './components/Content/Content';
-import Settings from './components/Settings/Settings';
 import '@fontsource-variable/roboto-mono';
 import '@fontsource/roboto';
-import Mowgli from './assets/Mowgli1.jpg';
+import Content from './components/Content/Content';
+import Settings from './components/Settings/Settings';
+import backgroundApplicator from './utils/backgroundApplicator';
+import Themes from './enums/Themes';
 
 const App = () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [weather, setWeather] = useState<Record<string, any>>();
+  const [theme] = useState<Themes>(Themes.Mowgli);
   const [location, setLocation] = useState<string>(() => {
     if (navigator.geolocation) {
+      // If GPS Available, set initial GPS Render to users location
       navigator.geolocation.getCurrentPosition((position) => {
         const { latitude, longitude } = position.coords;
         setLocation(`${latitude},${longitude}`);
@@ -18,7 +21,11 @@ const App = () => {
     }
     return '';
   });
-  document.body.style.backgroundImage = `url(${Mowgli})`;
+
+  // Set background image on first render, or theme change
+  useEffect(() => {
+    document.body.style.backgroundImage = `url(${backgroundApplicator()})`;
+  }, [theme]);
 
   useEffect(() => {
     (async () => {
