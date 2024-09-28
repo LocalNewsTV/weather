@@ -12,10 +12,9 @@ enum Frame {
  * @desc Given the current screen being used, and selected theme, grabs a background image source
  * @returns Image Source
  */
-const backgroundApplicator = () => {
+const backgroundApplicator = (theme: Themes) => {
   const { width, height } = screen;
   const frame: Frame = width > height ? Frame.Landscape : Frame.Portrait;
-  const theme = Themes.Mowgli; // TODO
   const keys = Object.keys(mainObject[theme][frame]);
   return mainObject[theme][frame][keys[(keys.length * Math.random()) << 0]];
 };

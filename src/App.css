@@ -7,4 +7,5 @@ body {
   background-repeat: no-repeat;
   font-family: 'Roboto', 'Roboto Mono Variable';
   background-size: cover;
+  background-position: center;
 }

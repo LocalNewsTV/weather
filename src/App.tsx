@@ -24,7 +24,7 @@ const App = () => {
 
   // Set background image on first render, or theme change
   useEffect(() => {
-    document.body.style.backgroundImage = `url(${backgroundApplicator()})`;
+    document.body.style.backgroundImage = `url(${backgroundApplicator(theme)})`;
   }, [theme]);
 
   useEffect(() => {
