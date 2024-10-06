@@ -1,4 +1,5 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
+import mq from '../../constants/mq';
 
 type ContainerProps = {
   width: number;
@@ -32,8 +33,12 @@ export const Container = styled.div<ContainerProps>`
   &:hover {
     transition: transform 0.3s;
     transform: translateX(
-      ${({ transform, open }) => (transform + (open ? -3 : 3)).toString()}%
+      ${({ transform, open }) => transform + (open ? -3 : 3)}%
     );
+  }
+
+  @media (max-width: ${mq.mobile}) {
+    width: 95%;
   }
 `;
 
@@ -80,4 +85,7 @@ export const StyledP = styled.p`
   font-size: 20pt;
   margin: 0 3pt;
   padding: 0;
+  @media (max-width: ${mq.mobile}) {
+    font-size: 13pt;
+  }
 `;
