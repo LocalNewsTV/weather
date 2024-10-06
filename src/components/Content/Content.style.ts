@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 export const Main = styled.main`
   bottom: 0;
@@ -6,7 +6,8 @@ export const Main = styled.main`
   flex-direction: column;
   justify-content: flex-end;
   left: 0;
-  max-width: 80%;
+  max-width: 100%;
   position: absolute;
   width: 455pt;
+  @media;
 `;
