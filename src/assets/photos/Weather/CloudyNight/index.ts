@@ -7,7 +7,3 @@ export { default as Photo6 } from './6.webp';
 export { default as Photo7 } from './7.webp';
 export { default as Photo8 } from './8.webp';
 export { default as Photo9 } from './9.webp';
-export { default as Photo10 } from './10.webp';
-export { default as Photo11 } from './11.webp';
-export { default as Photo12 } from './12.webp';
-export { default as Photo13 } from './13.webp';
