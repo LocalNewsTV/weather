@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 type ContainerProps = {
   transform: number;
@@ -13,6 +13,7 @@ export const Boundary = styled.div`
   width: 280pt;
   height: 60pt;
 `;
+
 export const Container = styled.div<ContainerProps>`
   align-items: center;
   background-color: #00000089;
@@ -81,5 +82,17 @@ export const Gear = styled.button`
   img {
     height: 30pt;
     width: 30pt;
+  }
+`;
+
+export const More = styled.button`
+  background: transparent;
+  width: 30pt;
+  height: 30pt;
+  padding: 0;
+  margin: 0;
+  & > img {
+    width: 100%;
+    height: 100%;
   }
 `;

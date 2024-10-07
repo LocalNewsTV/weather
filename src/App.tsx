@@ -7,11 +7,12 @@ import Settings from './components/Settings/Settings';
 import backgroundApplicator from './utils/backgroundApplicator';
 import Themes from './enums/Themes';
 import Loading from './components/Loading/Loading';
+import UserSettings from './utils/UserSettings';
 
 const App = () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [weather, setWeather] = useState<Record<string, any>>();
-  const [theme] = useState<Themes>(Themes.Weather);
+  const [theme, setTheme] = useState<Themes>(UserSettings.getTheme());
   const [location, setLocation] = useState<string>(() => {
     if (navigator.geolocation) {
       // If GPS Available, set initial GPS Render to users location
@@ -24,7 +25,7 @@ const App = () => {
   });
 
   useEffect(() => {
-    if (theme === Themes.Weather && weather) {
+    if (weather) {
       const weatherType = weather.current.condition.text ?? null;
       document.body.style.backgroundImage = `url(${backgroundApplicator(theme, weatherType)})`;
     }
@@ -54,8 +55,12 @@ const App = () => {
     <>
       {weather ? (
         <>
-          <Settings setLocation={setLocation} />
-          {weather && <Content weather={weather} />}
+          <Settings
+            setLocation={setLocation}
+            setTheme={setTheme}
+            theme={theme}
+          />
+          <Content weather={weather} />
         </>
       ) : (
         <Loading />
