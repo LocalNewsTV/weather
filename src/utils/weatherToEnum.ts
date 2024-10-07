@@ -2,9 +2,9 @@ import WeatherTypes from '../enums/WeatherTypes';
 
 const weatherToEnum = (weather: string): WeatherTypes => {
   const currHour = new Date().getHours();
-  const isDaytime = 6 < currHour && currHour < 18;
+  const isNighttime = currHour < 7 || 18 < currHour;
 
-  if (!isDaytime) {
+  if (isNighttime) {
     switch (weather) {
       case 'Overcast':
       case 'Cloudy':
