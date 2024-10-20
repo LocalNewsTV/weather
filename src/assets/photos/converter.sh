@@ -10,10 +10,12 @@ elif [[ ! -d $path ]]; then
   exit 128
 fi
 
+counter=1
 for file in $path/*.jp*; do
   if [ -f "$file" ]; then
-    magick "$file" -quality 80 -define webp:lossless=true "${file%.*}.webp"
+    magick "$file" -quality 80 -define webp:lossless=true "$path/$counter.webp"
     echo "${file%.*}"
+    ((counter++))
     rm "$file"
   fi
 done
