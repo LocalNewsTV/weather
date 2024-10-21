@@ -9,10 +9,11 @@ const Loading = () => {
     'Aligning the stars for optimal performance...',
     'Activating turbo mode...',
     'Defragmenting the universe...',
+    'Did you feed your Neopets?',
     'Calculating weather patterns...',
     'Summoning meteorologists...',
     'Recharging the coffee supply...',
-    'Turning off and on my sense of humour',
+    'Turning off and on my sense of humour...',
     'Applying a fresh coat of binary paint...',
     'Summoning a team of caffeinated squirrels...',
   ];

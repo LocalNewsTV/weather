@@ -28,12 +28,12 @@ const App = () => {
     (async () => {
       if (weather) {
         const weatherType = weather.current.condition.text ?? null;
-        const bg = await backgroundApplicator(theme, weatherType);
-        document.body.style.backgroundImage = `url(${bg})`;
-        console.log(bg);
+        const bgUrl = await backgroundApplicator(theme, weatherType);
+        document.body.style.backgroundImage = `url(${bgUrl})`;
       }
     })();
   }, [weather, theme]);
+
   useEffect(() => {
     (async () => {
       if (!location) {
