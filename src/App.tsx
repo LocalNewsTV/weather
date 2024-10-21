@@ -25,10 +25,14 @@ const App = () => {
   });
 
   useEffect(() => {
-    if (weather) {
-      const weatherType = weather.current.condition.text ?? null;
-      document.body.style.backgroundImage = `url(${backgroundApplicator(theme, weatherType)})`;
-    }
+    (async () => {
+      if (weather) {
+        const weatherType = weather.current.condition.text ?? null;
+        const bg = await backgroundApplicator(theme, weatherType);
+        document.body.style.backgroundImage = `url(${bg})`;
+        console.log(bg);
+      }
+    })();
   }, [weather, theme]);
   useEffect(() => {
     (async () => {
