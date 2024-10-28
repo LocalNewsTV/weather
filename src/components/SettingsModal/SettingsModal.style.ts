@@ -23,7 +23,7 @@ export const ModalContainer = styled.div<Modal>`
 `;
 
 export const Header = styled.header`
-  height: 30pt;
+  height: 50pt;
   width: 100%;
   background-color: rgb(218, 218, 218);
   padding-left: 1rem;
@@ -44,10 +44,41 @@ export const Content = styled.section`
   width: 100%;
   padding: 1rem;
   box-sizing: border-box;
+  overflow-y: scroll;
+  ul {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+  }
+  ul li {
+    display: flex;
+    align-items: center;
+    padding: 5pt;
+    justify-content: space-between;
+    select {
+      height: 30pt;
+      width: 100pt;
+    }
+  }
 `;
 
-export const Footer = styled.footer`
+export const Button = styled.button`
   height: 30pt;
+  width: 80pt;
+  border: 1pt solid #16161d;
+  background-color: transparent;
+  color: #16161d;
+  &:hover {
+    background-color: #ddd;
+  }
+`;
+export const Footer = styled.footer`
+  height: 50pt;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   border-top: 1pt solid gray;
+  box-sizing: border-box;
+  padding: 0 10pt;
 `;

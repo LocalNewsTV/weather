@@ -26,6 +26,7 @@ const Settings = ({ setLocation, theme, setTheme }: PropTypes) => {
   const [toggle, setToggle] = useState<boolean>(false);
   const [showModal, setShowModal] = useState<boolean>(false);
   const updateLocation = () => setLocation(searchString);
+  const closeModal = () => setShowModal(false);
   const handleChange = (evt: ChangeEvent<HTMLInputElement>) =>
     setSearchString(evt.target.value);
   const handleKeyDown = (evt: KeyboardEvent<HTMLInputElement>) => {
@@ -68,7 +69,12 @@ const Settings = ({ setLocation, theme, setTheme }: PropTypes) => {
           </More>
         </Container>
       </Boundary>
-      <SettingsModal display={showModal} theme={theme} setTheme={setTheme} />
+      <SettingsModal
+        display={showModal}
+        theme={theme}
+        handleClose={closeModal}
+        setTheme={setTheme}
+      />
     </>
   );
 };
