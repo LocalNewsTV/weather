@@ -26,7 +26,7 @@ const SettingsModal = ({
     UserSettings.setTheme(evt.target.value as Themes);
   };
   return (
-    <ModalContainer display={display}>
+    <ModalContainer showModal={display}>
       <Header>
         <h2>Settings</h2>
       </Header>
@@ -36,7 +36,9 @@ const SettingsModal = ({
             <label htmlFor="app-theme">App Theme</label>
             <select id="app-theme" value={theme} onChange={handleThemeChange}>
               {Object.keys(Themes).map((item) => (
-                <option value={Themes[item]}>{item}</option>
+                <option key={item} value={Themes[item]}>
+                  {item}
+                </option>
               ))}
             </select>
           </li>

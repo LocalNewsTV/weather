@@ -1,10 +1,10 @@
 import styled from '@emotion/styled';
 
 type Modal = {
-  display: boolean;
+  showModal: boolean;
 };
 export const ModalContainer = styled.div<Modal>`
-  display: ${({ display }) => (display ? 'flex' : 'none')};
+  display: ${({ showModal }) => (showModal ? 'flex' : 'none')};
   position: absolute;
   top: 50;
   left: 50;
